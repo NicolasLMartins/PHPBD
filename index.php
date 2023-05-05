@@ -50,6 +50,10 @@
                         <li><a href="atividade.php?dir=db&file=excluir_02">
                             Excluir Registro #02
                         </a></li>
+
+                        <li><a href="atividade.php?dir=db&file=excluir_03">
+                            Excluir Registro #03
+                        </a></li>
                     </ul>
                 </div>
                 <div class="assunto laranja">
