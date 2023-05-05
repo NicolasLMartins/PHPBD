@@ -28,15 +28,27 @@
                         </a></li>
 
                         <li><a href="atividade.php?dir=db&file=inserir_01">
-                            Inserir Registro
+                            Inserir Registro #01
+                        </a></li>
+
+                        <li><a href="atividade.php?dir=db&file=inserir_02">
+                            Inserir Registro #02
                         </a></li>
 
                         <li><a href="atividade.php?dir=db&file=consultar_01">
-                            Consultar Registros #1
+                            Consultar Registros #01
                         </a></li>
 
                         <li><a href="atividade.php?dir=db&file=consultar_02">
-                            Consultar Registros #2
+                            Consultar Registros #02
+                        </a></li>
+
+                        <li><a href="atividade.php?dir=db&file=excluir_01">
+                            Excluir Registro #01
+                        </a></li>
+
+                        <li><a href="atividade.php?dir=db&file=excluir_02">
+                            Excluir Registro #02
                         </a></li>
                     </ul>
                 </div>
