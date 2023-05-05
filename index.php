@@ -31,8 +31,12 @@
                             Inserir Registro
                         </a></li>
 
-                        <li><a href="atividade.php?dir=db&file=consultar">
-                            Consultar Registros
+                        <li><a href="atividade.php?dir=db&file=consultar_01">
+                            Consultar Registros #1
+                        </a></li>
+
+                        <li><a href="atividade.php?dir=db&file=consultar_02">
+                            Consultar Registros #2
                         </a></li>
                     </ul>
                 </div>

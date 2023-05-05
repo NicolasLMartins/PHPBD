@@ -1,4 +1,4 @@
-<div class="titulo">Consultar Registros</div>
+<div class="titulo">Consultar Registros #01</div>
 
 <?php
 
