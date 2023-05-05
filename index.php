@@ -30,6 +30,10 @@
                         <li><a href="atividade.php?dir=db&file=inserir_01">
                             Inserir Registro
                         </a></li>
+
+                        <li><a href="atividade.php?dir=db&file=consultar">
+                            Consultar Registros
+                        </a></li>
                     </ul>
                 </div>
                 <div class="assunto laranja">
