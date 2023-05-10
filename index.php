@@ -32,7 +32,7 @@
                         </a></li>
 
                         <li><a href="atividade.php?dir=db&file=inserir_02">
-                            Inserir Registro #02
+                            Inserir Registro #02 (pelo formulário)
                         </a></li>
 
                         <li><a href="atividade.php?dir=db&file=consultar_01">
@@ -48,7 +48,7 @@
                         </a></li>
 
                         <li><a href="atividade.php?dir=db&file=excluir_02">
-                            Excluir Registro #02
+                            Excluir Registro #02 (parcial)
                         </a></li>
 
                         <li><a href="atividade.php?dir=db&file=excluir_03">
