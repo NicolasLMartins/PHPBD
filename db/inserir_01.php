@@ -1,4 +1,4 @@
-<div class="titulo">Inserir Registro #1</div>
+<div class="titulo">Inserir Registro #01</div>
 
 <?php
 
