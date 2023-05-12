@@ -43,6 +43,10 @@
                             Consultar Registros #02
                         </a></li>
 
+                        <li><a href="atividade.php?dir=db&file=alterar">
+                            Alterar registro
+                        </a></li>
+
                         <li><a href="atividade.php?dir=db&file=excluir_01">
                             Excluir Registro #01
                         </a></li>
