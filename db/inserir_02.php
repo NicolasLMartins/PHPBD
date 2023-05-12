@@ -3,6 +3,7 @@
 <div class="titulo">Inserir Registro #02</div>
 
 <?php
+require_once "conexao.php";
 
 if (count($_POST) > 0) {
     $dados = $_POST;
@@ -44,8 +45,6 @@ if (count($_POST) > 0) {
             $erros['salario'] = 'Salário inválido (1302-10000)';
     }
 }
-
-require_once "conexao.php";
 
 $sql = "INSERT INTO cadastro (nome, nascimento, email, site, horas, salario)
 VALUES (
