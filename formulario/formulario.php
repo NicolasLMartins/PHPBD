@@ -86,7 +86,7 @@ if(count($_POST) > 0) {
             </div>
         </div>
         <div class="form-group col-md-6">
-            <label for="Salário">Site</label>
+            <label for="site">Site</label>
             <input type="text"
                 class="form-control <?= $erros['site'] ? 'is-invalid' : '' ?>"
                 id="site" name="site" placeholder="Site"
