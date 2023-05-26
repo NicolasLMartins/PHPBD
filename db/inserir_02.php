@@ -33,7 +33,7 @@ if (count($_POST) > 0) {
     
     if(!filter_var($dados['horas'], FILTER_VALIDATE_INT, 
         $horasConfig) && $dados['horas'] != 0) {
-        $erros['horas'] = 'Horas trabalhadas inválida (0-220)!';
+        $erros['horas'] = 'Horas trabalhadas inválidas (0-220)!';
     }
     
     $salarioConfig = [
@@ -59,7 +59,7 @@ if (count($_POST) > 0) {
             $dados['email'],
             $dados['site'],
             $dados['horas'],
-            $dados['salario']
+            $dados['salario'] ? str_replace(",", ".", $dados['salario']) : null
         ];
         
         $stmt->bind_param("ssssid", ...$params);

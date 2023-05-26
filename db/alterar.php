@@ -22,6 +22,9 @@ if ($_GET['codigo']) {
                 $dt = new DateTime($dados['nascimento']);
                 $dados['nascimento'] = $dt->format('d/m/Y');
             }
+            if ($dados['salario']) {
+                $dados['salario'] = str_replace(".", ",", $dados['salario']);
+            }
         }
     }
 }
@@ -56,24 +59,21 @@ if (count($_POST) > 0) {
     
     if(!filter_var($dados['horas'], FILTER_VALIDATE_INT, 
         $horasConfig) && $dados['horas'] != 0) {
-        $erros['horas'] = 'Horas trabalhadas inválida (0-220)!';
+        $erros['horas'] = 'Horas trabalhadas inválidas (0-220)!';
     }
     
-    $salarioConfig = [
-        "options" => ["decimal" => ',', "min_range" => 1302.00, "max_range" => 10000.00] //ERRO: PONTO DECIMAL NÃO REGISTRADO
-    ];
-    if(!filter_var($dados['salario'], FILTER_VALIDATE_FLOAT,
-    $salarioConfig)) {
+    $salarioConfig = ["options" => ["decimal" => ',', "min_range" => 1302.00, "max_range" => 10000.00]]; //ERRO: PONTO DECIMAL NÃO REGISTRADO
+    
+    if(!filter_var($dados['salario'], FILTER_VALIDATE_FLOAT, $salarioConfig)) {
         $erros['salario'] = 'Salário inválido (R$ 1302.00 - R$ 10000.00)';
     }
     
     if (!count($erros)) {
 
-        require_once "conexao.php";
+        $sql = "UPDATE cadastro 
+        SET nome = ?, nascimento = ?, email = ?, site = ?, horas = ?, salario = ?
+        WHERE id = ?"; 
         
-        $sql = "INSERT INTO cadastro (nome, nascimento, email, site, horas, salario) VALUES (?, ?, ?, ?, ?, ?)";
-        
-        $conexao = novaConexao();
         $stmt = $conexao->prepare($sql);
         
         $params = [
@@ -82,10 +82,11 @@ if (count($_POST) > 0) {
             $dados['email'],
             $dados['site'],
             $dados['horas'],
-            $dados['salario']
+            $dados['salario'] ? str_replace(",", ".", $dados['salario']) : null,
+            $dados['id']
         ];
         
-        $stmt->bind_param("ssssid", ...$params);
+        $stmt->bind_param("ssssidi", ...$params);
         
         if($stmt->execute()) {
             unset($dados);
@@ -96,7 +97,7 @@ if (count($_POST) > 0) {
 
 
 <?php foreach ($erros as $erro): ?>
-        <?= "" ?>   
+    <?= "" ?>   
 <?php endforeach; ?>
 
 <form action="/atividade.php" method="get">
@@ -116,6 +117,7 @@ if (count($_POST) > 0) {
     </div>
 </form>
 <form action="#" method="post">
+    <input type="hidden" name="id" value="<?= $dados['id'] ?>">
     <div class="form-group row">
         <div class="form-group col-md-8">
             <label for="nome">Nome</label>

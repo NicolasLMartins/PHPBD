@@ -12,10 +12,13 @@ $resultado = $conexao->query($sql);
 $registros = [];
 
 if ($resultado->num_rows > 0) {
+    
     while($row = $resultado->fetch_assoc()) {
         $registros[] = $row;
     }
-} elseif($conexao->error) {
+
+    
+} elseif ($conexao->error) {
     echo "Erro: " . $conexao->error;
 }
 
@@ -37,7 +40,7 @@ $conexao->close();
             <tr>
                 <td><?= $registro['id'] ?></td>
                 <td><?= $registro['nome'] ?></ªtd>
-                <td><?= $registro['nascimento'] ?></td>
+                <td><?= date('d/m/Y', strtotime($registro['nascimento'])) ?></td>
                 <td><?= $registro['email'] ?></td>
             </tr>
         <?php endforeach ?>
